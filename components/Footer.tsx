@@ -6,7 +6,7 @@ import twitter from '../public/logos/twitter.png';
 
 function Footer() {
     return (
-        <footer className="bg-[url('../public/images/stars.jpeg')] bg-cover bg-center md:px-24 py-16 md:py-20 text-center md:flex items-center justify-between">
+        <footer className="bg-[url('../public/images/stars.png')] bg-cover bg-center md:px-24 py-16 md:py-20 text-center md:flex items-center justify-between">
             <p className="text-white font-bold text-4xl md:text-5xl drop-shadow">
                 CONTACT US
             </p>
