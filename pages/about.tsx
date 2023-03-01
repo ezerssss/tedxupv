@@ -70,7 +70,7 @@ function about() {
                 <section className="text-center mb-16 px-10">
                     <Image
                         alt="rocket"
-                        className="mx-auto my-10"
+                        className="mx-auto my-10 h-32 w-auto"
                         src={rocket}
                     />
                     <h2 className="font-extrabold text-4xl md:text-6xl mb-10">
