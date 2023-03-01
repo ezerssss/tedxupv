@@ -1,14 +1,10 @@
 import Head from 'next/head';
-import Image from 'next/image';
 import Link from 'next/link';
-import logo from '../public/logos/logo-white.png';
-import { RxHamburgerMenu } from 'react-icons/rx';
 import { Cloudinary } from '@cloudinary/url-gen';
 import { AdvancedVideo } from '@cloudinary/react';
 import Speaker from '@/components/Home/Speaker';
-import email from '../public/logos/email.png';
-import fb from '../public/logos/fb.png';
-import twitter from '../public/logos/twitter.png';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 
 export default function Home() {
     const cld = new Cloudinary({
@@ -30,17 +26,7 @@ export default function Home() {
                 />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <header className="py-4 px-2 sm:px-4 bg-black flex items-center justify-around text-white">
-                <Image alt="TEDxUPV" height={60} src={logo} />
-                <div className="hidden md:flex gap-12">
-                    <Link href="/about">ABOUT</Link>
-                    <Link href="/speakers">SPEAKERS</Link>
-                    <Link href="/sponsors">SPONSORS</Link>
-                </div>
-                <button className="block md:hidden">
-                    <RxHamburgerMenu size={30} />
-                </button>
-            </header>
+            <Header />
             <main>
                 <section className="h-[500px] w-full flex items-center justify-center bg-[url('../public/images/rocket.png')] bg-cover bg-center mb-20">
                     <div className="z-10">
@@ -131,34 +117,7 @@ export default function Home() {
                     </div>
                 </section>
             </main>
-            <footer className="bg-[url('../public/images/stars.jpeg')] bg-cover bg-center px-24 py-40 text-center md:flex items-center justify-between">
-                <p className="text-white font-bold text-5xl drop-shadow">
-                    CONTACT US
-                </p>
-                <div className="flex gap-7 items-center justify-center mt-10 md:mt-0">
-                    <button>
-                        <Image
-                            alt="email"
-                            className="h-16 w-auto"
-                            src={email}
-                        />
-                    </button>
-                    <button>
-                        <Image
-                            alt="facebook"
-                            className="h-16 w-auto"
-                            src={fb}
-                        />
-                    </button>
-                    <button>
-                        <Image
-                            alt="twitter"
-                            className="h-16 w-auto"
-                            src={twitter}
-                        />
-                    </button>
-                </div>
-            </footer>
+            <Footer />
         </>
     );
 }
