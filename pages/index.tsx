@@ -54,7 +54,12 @@ export default function Home() {
                 </section>
                 <section className="my-10 md:flex mx-auto justify-center px-10 md:px-20">
                     <div className="aspect-video flex-1">
-                        <AdvancedVideo autoPlay controls cldVid={myVideo} />
+                        <AdvancedVideo
+                            autoPlay
+                            controls
+                            className="w-full h-full"
+                            cldVid={myVideo}
+                        />
                     </div>
                     <div className="flex-1 bg-gray-300 aspect-video flex flex-col items-center justify-center text-center py-10">
                         <div className="flex-1 flex justify-center items-center px-5">
