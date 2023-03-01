@@ -33,7 +33,7 @@ export default function Home() {
                         <h1 className="text-white text-4xl sm:text-6xl lg:text-7xl font-black drop-shadow mb-6 text-center">
                             MOONSHOT
                         </h1>
-                        <div className="py-1 sm:py-3 px-5 sm:px-8 rounded-3xl bg-red-500 text-white text-base sm:text-xl lg:text-2xl font-light w-fit mx-auto tracking-widest drop-shadow">
+                        <div className="py-1 sm:py-3 px-5 sm:px-8 rounded-3xl bg-redted text-white text-base sm:text-xl lg:text-2xl font-light w-fit mx-auto tracking-widest drop-shadow">
                             <p>JUNE 2, 2023</p>
                         </div>
                     </div>
@@ -81,7 +81,7 @@ export default function Home() {
                         </div>
                     </div>
                 </section>
-                <section className="p-5 sm:p-10 md:p-20 md:px-32 bg-red-500 text-white lg:flex gap-10 justify-around">
+                <section className="p-5 sm:p-10 md:p-20 md:px-32 bg-redted text-white lg:flex gap-10 justify-around">
                     <div className="text-center lg:text-left text-2xl lg:text-3xl">
                         <p className="mb-10 hidden lg:block">
                             Want to know more?
