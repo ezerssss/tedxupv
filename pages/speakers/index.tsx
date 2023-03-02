@@ -3,7 +3,7 @@ import Header from '@/components/Header';
 import Speaker from '@/components/Speakers/Speaker';
 import Head from 'next/head';
 import React from 'react';
-import logo from '../public/logos/logo-black.png';
+import logo from '../../public/logos/logo-black.png';
 import Image from 'next/image';
 
 function Speakers() {
@@ -37,12 +37,33 @@ function Speakers() {
                     amet ut cupiditate veritatis quo! Voluptate laborum quaerat
                     odio excepturi veritatis non inventore.
                 </p>
-                <Speaker />
-                <Speaker />
-                <Speaker />
-                <Speaker />
-                <Speaker />
-                <Speaker />
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 w-[860px] max-w-full mx-auto gap-2 gap-y-5">
+                    <Speaker
+                        image="leni.jpg"
+                        name="Maria Leonor Santo Tomas Gerona"
+                        profession="14th Vice President of the Philippines"
+                    />
+                    <Speaker
+                        image="leni.jpg"
+                        name="Maria Leonor Santo Tomas Gerona"
+                        profession="14th Vice President of the Philippines"
+                    />
+                    <Speaker
+                        image="leni.jpg"
+                        name="Maria Leonor Santo Tomas Gerona"
+                        profession="14th Vice President of the Philippines"
+                    />
+                    <Speaker
+                        image="leni.jpg"
+                        name="Maria Leonor Santo Tomas Gerona"
+                        profession="14th Vice President of the Philippines"
+                    />
+                    <Speaker
+                        image="leni.jpg"
+                        name="Maria Leonor Santo Tomas Gerona"
+                        profession="14th Vice President of the Philippines"
+                    />
+                </div>
             </main>
             <Footer />
         </>

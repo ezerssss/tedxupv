@@ -1,26 +1,38 @@
+import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 
-function Speaker() {
+interface PropsInteface {
+    image: string;
+    name: string;
+    profession: string;
+}
+
+function Speaker(props: PropsInteface) {
+    const { image, name, profession } = props;
+
+    const [imageName, imageType] = image.split('.');
+
     return (
-        <div className="my-10 flex flex-col md:flex-row items-center justify-center gap-5 md:odd:flex-row-reverse md:odd:text-right text-center md:text-left">
-            <div className="h-60 md:h-64 w-60 md:w-64 rounded-full bg-[url('../public/images/speakers/leni.jpg')] bg-cover bg-center drop-shadow-lg"></div>
-            <div className="max-w-full w-[400px]">
-                <h2 className="text-redted font-bold text-2xl md:text-3xl">
-                    Maria Leonor G. Robredo
-                </h2>
-                <p className="text-sm mb-2 mt-[2px]">
-                    <i>14th Vice President of the Philippines</i>
-                </p>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Dolore deleniti nam soluta itaque, modi nobis, repudiandae
-                    libero culpa debitis natus asperiores deserunt accusamus.
-                    Vero, magni impedit! Hic architecto perspiciatis earum vel
-                    similique reprehenderit molestias amet ab, temporibus quas
-                    modi exercitationem.
-                </p>
+        <Link
+            className="block"
+            href={`/speakers/${imageName}?type=${imageType}`}
+        >
+            <div className="w-full aspect-square relative overflow-hidden">
+                <Image
+                    fill
+                    alt="speaker"
+                    className="object-cover"
+                    src={`/images/speakers/${image}`}
+                />
             </div>
-        </div>
+            <h2 className="mt-2 mb-1 leading-tight font-bold text-base md:text-lg">
+                {name}
+            </h2>
+            <p className="text-xs md:text-sm">
+                <i>{profession}</i>
+            </p>
+        </Link>
     );
 }
 
