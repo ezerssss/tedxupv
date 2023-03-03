@@ -5,6 +5,8 @@ import { AdvancedVideo } from '@cloudinary/react';
 import Speaker from '@/components/Home/Speaker';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import Newsletter from '@/components/Home/Newsletter';
+import { speakersData } from '@/constants/speakers';
 
 export default function Home() {
     const cld = new Cloudinary({
@@ -13,7 +15,11 @@ export default function Home() {
         },
     });
 
-    const myVideo = cld.video('teaser_c8gnmz');
+    const teaserVideo = cld.video('teaser_c8gnmz');
+
+    const { image: image1, title: title1, name: name1 } = speakersData[0];
+    const { image: image2, title: title2, name: name2 } = speakersData[1];
+    const { image: image3, title: title3, name: name3 } = speakersData[2];
 
     return (
         <>
@@ -44,7 +50,7 @@ export default function Home() {
                             autoPlay
                             controls
                             className="w-full h-full"
-                            cldVid={myVideo}
+                            cldVid={teaserVideo}
                         />
                     </div>
                     <div className="flex-1 bg-gray-300 aspect-video flex flex-col items-center justify-center text-center py-10">
@@ -72,50 +78,24 @@ export default function Home() {
                         </Link>
                     </div>
                     <div className="my-5 flex gap-5 md:gap-10 lg:gap-20 items-center justify-center">
-                        <Speaker />
+                        <Speaker image={image1} title={title1} name={name1} />
                         <div className="flex-1 hidden sm:block">
-                            <Speaker />
+                            <Speaker
+                                image={image2}
+                                title={title2}
+                                name={name2}
+                            />
                         </div>
                         <div className="flex-1 hidden md:block">
-                            <Speaker />
+                            <Speaker
+                                image={image3}
+                                title={title3}
+                                name={name3}
+                            />
                         </div>
                     </div>
                 </section>
-                <section className="p-5 sm:p-10 md:p-20 md:px-32 bg-redted text-white lg:flex gap-10 justify-around">
-                    <div className="text-center lg:text-left text-2xl lg:text-3xl">
-                        <p className="mb-10 hidden lg:block">
-                            Want to know more?
-                        </p>
-                        <p>Subscribe to the</p>
-                        <p className="font-bold mb-10">MathO Newsletter</p>
-                        <p className="font-thin">to keep updated.</p>
-                    </div>
-                    <div className="flex flex-col gap-2 text-black mt-10 lg:mt-0">
-                        <input
-                            className="p-4 max-w-full w-[400px] drop-shadow outline-none mx-auto"
-                            placeholder="Email"
-                            type="email"
-                        />
-                        <input
-                            className="p-4 max-w-full w-[400px] drop-shadow outline-none mx-auto"
-                            placeholder="First Name"
-                        />
-                        <input
-                            className="p-4 max-w-full w-[400px] drop-shadow outline-none mx-auto"
-                            placeholder="Last Name"
-                        />
-                        <input
-                            className="p-4 max-w-full w-[400px] drop-shadow outline-none mx-auto"
-                            placeholder="School / University"
-                        />
-                        <button
-                            className="bg-black text-white p-4 drop-shadow max-w-full w-[400px] mx-auto mb-10"
-                            type="submit"
-                        >
-                            SUBSCRIBE
-                        </button>
-                    </div>
-                </section>
+                <Newsletter />
             </main>
             <Footer />
         </>

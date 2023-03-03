@@ -5,8 +5,13 @@ import Head from 'next/head';
 import React from 'react';
 import logo from '../../public/logos/logo-black.png';
 import Image from 'next/image';
+import { speakersData } from '@/constants/speakers';
 
 function Speakers() {
+    const renderSpeakers = speakersData.map(({ image, name, title }) => (
+        <Speaker key={name} image={image} name={name} title={title} />
+    ));
+
     return (
         <>
             <Head>
@@ -38,31 +43,7 @@ function Speakers() {
                     odio excepturi veritatis non inventore.
                 </p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 w-[860px] max-w-full mx-auto gap-2 gap-y-5">
-                    <Speaker
-                        image="leni.jpg"
-                        name="Maria Leonor Santo Tomas Gerona"
-                        profession="14th Vice President of the Philippines"
-                    />
-                    <Speaker
-                        image="leni.jpg"
-                        name="Maria Leonor Santo Tomas Gerona"
-                        profession="14th Vice President of the Philippines"
-                    />
-                    <Speaker
-                        image="leni.jpg"
-                        name="Maria Leonor Santo Tomas Gerona"
-                        profession="14th Vice President of the Philippines"
-                    />
-                    <Speaker
-                        image="leni.jpg"
-                        name="Maria Leonor Santo Tomas Gerona"
-                        profession="14th Vice President of the Philippines"
-                    />
-                    <Speaker
-                        image="leni.jpg"
-                        name="Maria Leonor Santo Tomas Gerona"
-                        profession="14th Vice President of the Philippines"
-                    />
+                    {renderSpeakers}
                 </div>
             </main>
             <Footer />
