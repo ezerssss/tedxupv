@@ -1,22 +1,40 @@
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
+import Blank from '@/components/Speakers/Blank';
 import { speakersData } from '@/constants/speakers';
+import { Speaker } from '@/interfaces/SpeakerInterface';
 import Head from 'next/head';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 function Speaker() {
+    const [speaker, setSpeaker] = useState<Speaker | undefined>();
+    const [isLoading, setIsLoading] = useState(true);
+
     const router = useRouter();
     const { image } = router.query;
 
-    const speaker = speakersData.filter((speaker) => speaker.image === image);
+    useEffect(() => {
+        const foundSpeaker = speakersData.filter(
+            (speaker) => speaker.image === image,
+        );
 
-    if (!speaker) {
-        router.push('/');
+        if (!foundSpeaker.length) {
+            router.push('/speakers');
+
+            return;
+        }
+
+        setIsLoading(false);
+        setSpeaker(foundSpeaker[0]);
+    }, []);
+
+    if (isLoading || !speaker) {
+        return <Blank />;
     }
 
-    const { name, title, description, topic } = speaker[0];
+    const { name, title, description, topic } = speaker;
 
     const renderTopic = topic ? (
         <h2 className="text-lg sm:text-xl md:text-2xl text-redted font-bold mt-5 md:mt-0">
